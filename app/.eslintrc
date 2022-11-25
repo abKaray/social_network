@@ -1,0 +1,145 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react-hooks/recommended",
+    "airbnb",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "no-unused-vars": "warn",
+    "import/prefer-default-export": "off",
+    "react/prop-types": 0,
+    "camelcase": 0,
+    "no-redeclare": "error",
+    "consistent-return": 0,
+    "jsx-a11y/label-has-associated-control": [2, {
+      "assert": "either"
+    }],
+    "newline-before-return": 1,
+    "react/forbid-prop-types": 0,
+    "react/jsx-curly-newline": 0,
+    "react/react-in-jsx-scope": 0,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+   ],
+    "react/jsx-filename-extension": [
+      2,
+      { "extensions": [".js", ".jsx", ".tsx", ".ts"] }
+    ],
+    "react/jsx-props-no-spreading": 0
+  },
+  "overrides": [
+    {
+      "files": ["*.d.ts"],
+      "rules": {
+        "spaced-comment": "off"
+      }
+    },
+    {
+      "files": ["*.tsx"],
+      "rules": {
+        "react/prop-types": "off"
+      },
+    },
+    {
+      "files": ["**/*.ts?(x)"],
+      "extends": ["plugin:@typescript-eslint/recommended"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2018,
+        "sourceType": "module",
+        "project": ["./tsconfig.json"],
+        "ecmaFeatures": {
+          "jsx": true,
+        },
+        "warnOnUnsupportedTypeScriptVersion": true,
+      },
+      "plugins": ["@typescript-eslint"],
+      "rules": {
+        "default-case": "off",
+        "no-dupe-class-members": "off",
+        "no-undef": "off",
+        "@typescript-eslint/consistent-type-assertions": "error",
+        "no-array-constructor": "off",
+        "@typescript-eslint/no-array-constructor": "error",
+        "no-redeclare": "off",
+        "@typescript-eslint/no-redeclare": "error",
+        "no-use-before-define": "off",
+        "@typescript-eslint/no-use-before-define": [
+          "error",
+          {
+            "functions": false,
+            "classes": true,
+            "variables": true,
+            "typedefs": true,
+          },
+        ],
+        "no-unused-expressions": "off",
+        "@typescript-eslint/no-unused-expressions": 2,
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": 2,
+        "no-useless-constructor": "off",
+        "@typescript-eslint/no-useless-constructor": "error",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "@typescript-eslint/no-explicit-any": "off",
+        "@typescript-eslint/no-empty-function": "off",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "@typescript-eslint/ban-ts-comment": [
+          "error",
+          {
+            "ts-ignore": "allow-with-description",
+            "minimumDescriptionLength": 5,
+          },
+        ],
+        "@typescript-eslint/ban-types": [
+          "error",
+          {
+            "types": {
+              "{}": false,
+            },
+          },
+        ],
+      },
+    },
+  ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src/"],
+      }
+    }
+  },
+  "plugins": []
+}
